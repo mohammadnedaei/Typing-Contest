@@ -61,7 +61,7 @@ const Test = ({ onTestComplete }) => {
   useEffect(() => {
     if (hasEnded && timer && input.length === words.length) {
       const testResults = {
-        displayName: user.displayName || 'Guest',
+        displayName: user?.displayName || "Guest",
         time: timer,
         wpm: wpm,
         accuracy: accuracy,
