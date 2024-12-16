@@ -3,6 +3,7 @@ import { validInput } from './input';
 import { generate } from 'random-words';
 import './test.css';
 import { animate } from '../../../styles';
+import {UserAuth} from "../../../contexts/AuthContext.jsx";
 
 const buttonStyle = `mx-2 py-2 px-5 rounded-full bg-secondary dark:bg-secondary-dark hover:bg-white dark:hover:bg-white text-primary dark:text-primary-dark hover:scale-110 ${animate}`;
 
@@ -22,7 +23,7 @@ const Test = ({ onTestComplete }) => {
   const [keyPressed, setKeyPressed] = useState(''); // Key user has pressed
   const [accuracy, setAccuracy] = useState(100); // Accuracy
   const [resultArr, setResultArr] = useState([]); // Prevents double entry on late wpm calculation
-
+  const { user } = UserAuth();
   // Initialize test
   function init(_numWords) {
     setNumWords(_numWords);
@@ -60,6 +61,7 @@ const Test = ({ onTestComplete }) => {
   useEffect(() => {
     if (hasEnded && timer && input.length === words.length) {
       const testResults = {
+        displayName: user.displayName || 'Guest',
         time: timer,
         wpm: wpm,
         accuracy: accuracy,
