@@ -51,7 +51,7 @@ const Leaderboards = () => {
             className='flex w-full text-center mb-5 text-lg lg:text-xl'
           >
             <span className='w-1/6'>{`${idx + 1}`}</span>
-            <span className='w-1/6'>{`${user.displayName}`}</span>
+            <span className='w-1/6'>{`${result.displayName}`}</span>
             <span className='w-1/6'>{`${result.bestTime}s`}</span>
             <span className='w-1/6'>{`${result.bestWpm}`}</span>
             <span className='w-1/6'>{`${result.bestAccuracy} %`}</span>
