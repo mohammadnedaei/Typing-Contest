@@ -23,6 +23,8 @@ const Test = ({ onTestComplete }) => {
   const [keyPressed, setKeyPressed] = useState(''); // Key user has pressed
   const [accuracy, setAccuracy] = useState(100); // Accuracy
   const [resultArr, setResultArr] = useState([]); // Prevents double entry on late wpm calculation
+  const [lastKeyTime, setLastKeyTime] = useState(Date.now()); // Track the last key press time
+  const [isSuspicious, setIsSuspicious] = useState(false);
   const { user } = UserAuth();
   // Initialize test
   function init(_numWords) {
@@ -143,6 +145,17 @@ const Test = ({ onTestComplete }) => {
 
   // Handle user input
   function handleKeyDown(e) {
+    const currentTime = Date.now();
+    const timeBetweenKeys = currentTime - lastKeyTime;
+
+    // Check for unrealistic typing speed
+    if (timeBetweenKeys < 50) {
+      setIsSuspicious(true); // Flag as suspicious
+      console.warn("Unnatural typing speed detected! Input ignored.");
+      return; // Ignore this input
+    }
+
+    setLastKeyTime(currentTime);
     const key = e.key.toLowerCase();
     if (!validInput.includes(key)) return;
     setKeyPressed(key);
