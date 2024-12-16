@@ -8,7 +8,7 @@ const Navbar = ({ onClickToggleDark }) => {
     <nav className='w-full p-10 text-2xl flex items-center justify-between'>
       {/* Logo */}
       <a href='/' className='text-3xl font-bold cursor-pointer'>
-        Typing Contest
+        UUT Typing Contest
       </a>
 
       <ul className='flex items-center justify-center text-secondary dark:text-secondary-dark'>
