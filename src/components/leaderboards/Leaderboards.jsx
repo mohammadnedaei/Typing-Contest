@@ -7,7 +7,6 @@ import { animate } from '../../styles';
 const Leaderboards = () => {
   const { user } = UserAuth();
   const { leaderboard } = useTestResults();
-  console.log(leaderboard)
   return (
     // Personal best / results
     <div className='flex flex-col justify-center items-center w-full p-10'>
