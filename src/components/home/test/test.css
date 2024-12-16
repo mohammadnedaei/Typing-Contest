@@ -1,0 +1,13 @@
+.caret {
+  color: white;
+  animation: blink-caret 1s infinite;
+}
+
+@keyframes blink-caret {
+  100% {
+    opacity: 0;
+  }
+  /* 50% {
+    opacity: 0;
+  } */
+}
