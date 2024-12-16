@@ -42,7 +42,6 @@ const TestResultsProvider = ({ children }) => {
 
       const docRef = doc(db, 'users', user.uid);
       const docSnap = await getDoc(docRef);
-
       if (docSnap.data().bestWpm !== undefined) {
         const pb = {
           time: docSnap.data().bestTime,
