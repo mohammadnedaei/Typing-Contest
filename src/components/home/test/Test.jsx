@@ -149,11 +149,11 @@ const Test = ({ onTestComplete }) => {
     const timeBetweenKeys = currentTime - lastKeyTime;
 
     // Check for unrealistic typing speed
-    if (timeBetweenKeys < 40) {
-      setIsSuspicious(true); // Flag as suspicious
-      console.warn("Unnatural typing speed detected! Input ignored.");
-      return; // Ignore this input
-    }
+    // if (timeBetweenKeys < 40) {
+    //   setIsSuspicious(true); // Flag as suspicious
+    //   console.warn("Unnatural typing speed detected! Input ignored.");
+    //   return;
+    // }
 
     setLastKeyTime(currentTime);
     const key = e.key.toLowerCase();
